@@ -1,0 +1,43 @@
+extends pug/base
+
+append vars
+	- title = "RATORA Group (РАТОРА Групп) – оснащение объектов малого и среднего бизнеса в сегменте HoReCa и Retail"
+	- meta.viewport = "width=device-width, initial-scale=1"
+
+
+block content
+	header.main-header
+		.template-wrapper.header-wrapper
+			.main-logo
+				+svg_import("logo")
+			nav.main-nav
+				ul.main-nav__list
+					+menu-list-item('#direction', 'Направления')
+					+menu-list-item('#service', 'Услуги')
+					+menu-list-item('#goods', 'Товары')
+					+menu-list-item('#objects', 'Объекты')
+					+menu-list-item('#about', 'О компании')
+					+menu-list-item('#contacts', 'Контакты')
+			.main-phone
+				a.header-phone(href='89089999900') +7 (908) 999-99-00
+				a.callback(href='#callback-popup') Заказать звонок
+		.template-wrapper.header-information
+			.header-information__title
+				| Комплексное оснащение
+				| и проектирование
+			.header-information__prev-text
+				| в сегменте HoReCa и Retail
+			.header-information__services
+				.header-information__services-item
+					| продажа товаров
+					| со склада и на заказ
+				.header-information__services-item
+					| профессиональное
+					| консультирование
+					| по подбору
+					| оборудования
+				.header-information__services-item
+					| доставка и монтаж оборудования
+	main.main-content
+
+

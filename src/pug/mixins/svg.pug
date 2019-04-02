@@ -1,0 +1,6 @@
+mixin svg(name)
+	svg&attributes(attributes)
+		use(xlink:href=`${baseDir}images/svg.svg#${name}`)
+mixin svg_import(name)
+	svg&attributes(attributes)
+		use(xlink:href=`${baseDir}images/icons.svg#${name}`)

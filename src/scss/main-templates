@@ -1,13 +1,11 @@
+body {
+	font-family: $font-family-monserat;
+	font-weight: 400;
+	background: #ffffff;
+}
 .template-wrapper {
 	width: 100%;
 	max-width: 1170px;
 	padding: 0 30px;
 	margin: 0 auto;
-}
-ul {
-	padding: 0;
-	margin: 0;
-}
-li {
-	list-style-type: none;
 }

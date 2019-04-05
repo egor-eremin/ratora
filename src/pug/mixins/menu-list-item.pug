@@ -1,3 +1,3 @@
-mixin menu-list-item(id, name)
-	li.main-nav__item
+mixin menu-list-item(id, name, active)
+	li.main-nav__item(class = active)
 		a(href = id)= name

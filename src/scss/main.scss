@@ -12,9 +12,116 @@
 .header-wrapper {
 	padding: 0;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
+	padding-top: 29px;
+	padding-bottom: 29px;
+	margin-bottom: 96px;
 }
 .main-nav__list {
 	display: flex;
 	align-items: center;
+}
+.main-header {
+	height: 784px;
+	background: url("../images/background-header.jpg") no-repeat center center;
+	background-size: cover;
+}
+.main-logo {
+	cursor: pointer;
+	svg {
+		fill: $color-MediumAquamarine;
+		width: 153px;
+		height: 40px;
+	}
+}
+.main-nav__item a {
+	font-size: 13px;
+	color: $color-white;
+	font-weight: 500;
+	transition: .3s ease;
+}
+.main-nav__item a:hover {
+	color: $color-MediumAquamarine;
+}
+.main-nav {
+	margin-left: auto;
+	margin-top: 10px;
+}
+.header-phone {
+	color: $color-white;
+	font-weight: 700;
+	font-size: 16px;
+	margin-bottom: 8px;
+}
+.main-phone {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-top: 10px;
+	margin-left: 31px;
+}
+.callback {
+	color: $color-MediumAquamarine;
+	font-weight: 500;
+	line-height: 16px;
+	font-size: 14px;
+	transition: .3s ease;
+	border-bottom: 1px solid rgba(41,189,170,.3);
+}
+.callback:hover {
+	border-color: rgba(41,189,170,.6);
+}
+.header-information__title {
+	color: $color-white;
+	font-size: 36px;
+	line-height: 48px;
+	font-weight: 900;
+	max-width: 540px;
+	margin-bottom: 10px;
+}
+.header-information__prev-text {
+	color: $color-MediumAquamarine;
+	font-size: 24px;
+	margin-bottom: 62px;
+}
+.main-nav__item + .main-nav__item {
+	margin-left: 38px;
+}
+.main-nav__item.active::before {
+	content: '';
+	width: 2px;
+	height: 12px;
+	background-color: $color-MediumAquamarine;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translate(-12px, calc(-50% - 1px));
+}
+.main-nav__item {
+	position: relative;
+}
+.header-information__services {
+	display: flex;
+	align-items: flex-start;
+}
+.header-information__services-item {
+	color: $color-white;
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 500;
+	padding-right: 16px;
+	padding-left: 16px;
+	width: 18%;
+	position: relative;
+	margin-right: 3px;
+}
+.header-information__services-item::before {
+	content: '';
+	width: 2px;
+	height: 8px;
+	background: $color-MediumAquamarine;
+	display: block;
+	position: absolute;
+	top: 8px;
+	left: 0;
 }

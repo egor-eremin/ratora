@@ -2,24 +2,24 @@ extends pug/base
 
 append vars
 	- title = "RATORA Group (РАТОРА Групп) – оснащение объектов малого и среднего бизнеса в сегменте HoReCa и Retail"
-	- meta.viewport = "width=device-width, initial-scale=1"
+	- meta.viewport = "width=1170, initial-scale=1"
 
 
 block content
 	header.main-header
 		.template-wrapper.header-wrapper
-			.main-logo
+			a#header.main-logo
 				+svg_import("logo")
 			nav.main-nav
 				ul.main-nav__list
-					+menu-list-item('#direction', 'Направления')
+					+menu-list-item('#direction', 'Направления', 'active')
 					+menu-list-item('#service', 'Услуги')
 					+menu-list-item('#goods', 'Товары')
 					+menu-list-item('#objects', 'Объекты')
 					+menu-list-item('#about', 'О компании')
 					+menu-list-item('#contacts', 'Контакты')
 			.main-phone
-				a.header-phone(href='89089999900') +7 (908) 999-99-00
+				a.header-phone(href='tel:89089999900') +7 (908) 999-99-00
 				a.callback(href='#callback-popup') Заказать звонок
 		.template-wrapper.header-information
 			.header-information__title
@@ -30,14 +30,23 @@ block content
 			.header-information__services
 				.header-information__services-item
 					| продажа товаров
-					| со склада и на заказ
+					| со&nbsp;склада и&nbsp;на&nbsp;заказ
 				.header-information__services-item
-					| профессиональное
-					| консультирование
-					| по подбору
-					| оборудования
+					| профессиональное консультирование по&nbsp;подбору оборудования
 				.header-information__services-item
-					| доставка и монтаж оборудования
+					| доставка и&nbsp;монтаж оборудования
 	main.main-content
+		section.stock-slider
+			.template-wrapper.stock-slider-wrapper
+				.stock-slider__list
+					.stock-slider__item
+						img.stock-slider__img(src="images/stock.jpg" alt="Акция 1")
+						a.btn(href="#") Подробнее
+					.stock-slider__item
+						img.stock-slider__img(src="images/stock.jpg" alt="Акция 2")
+						a.btn(href="#") Подробнее
+					.stock-slider__item
+						img.stock-slider__img(src="images/stock.jpg" alt="Акция 3")
+						a.btn(href="#") Подробнее
 
 

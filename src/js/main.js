@@ -2,8 +2,46 @@ import './vendor';
 $(document).ready(function () {
 
 	(function initStockSlider() {
-
 		initSlider($('.js-stock-slider'));
+	})();
+
+	(function activateServicesTab() {
+		$('.services-tabs__list-item').on('click', function () {
+			var activeSection = $(this).data('section');
+
+			if (!$(this).hasClass('active')) {
+				$('.services-tabs__list-item').removeClass('active');
+				$(this).addClass('active');
+				$('.services-tabs__section-item.active').fadeOut(150);
+				$('.services-tabs__section-item').removeClass('active');
+				setTimeout(function () {
+					$('#' + activeSection).fadeIn(150).addClass('active');
+				}, 150);
+
+			}
+		});
+	})();
+
+	(function switchedCustomCheckbox() {
+
+		$('.checkbox-label').each(function () {
+			if ($(this).find('.custom-checkbox').prop('checked')) {
+				$(this).addClass('active');
+			}
+		});
+		$('.checkbox-label').on('click', function () {
+			var attrChecked = $(this).find('.custom-checkbox').prop('checked');
+
+			if (attrChecked) {
+				$(this).addClass('active');
+			} else {
+				$(this).removeClass('active');
+			}
+		});
+	})();
+
+	(function addedPhoneMask() {
+		$('.input-phone').mask('+7 (000) 000-00-00', {placeholder: "+7 ( _ _ _ ) _ _ _ - _ _ - _ _"});
 	})();
 
 });
@@ -52,4 +90,36 @@ function media(mediaQueryString, action){
 	var mql = window.matchMedia(mediaQueryString); //стандартный медиазапрос для смены режима просмотра
 	handleMatchMedia(mql);
 	mql.addListener(handleMatchMedia);
+}
+function validationForm(formInit, textGood, textBad) {
+	var thisTitle = $(formInit).siblings('.form-title');
+	$(formInit).validate({
+		submitHandler: function(form) {
+			$.ajax({
+				type: $(form).attr('method'),
+				url: $(form).attr('action'),
+				data: new FormData(form),
+
+				cache: false,
+				contentType: false,
+				processData: false,
+
+				dataType: 'json',
+				success: function (data) {
+					if(parseInt(data.success) == 1) {
+						$(formInit).addClass('hide-information');
+						thisTitle.html(textGood);
+					} else {
+						$(formInit).addClass('hide-information');
+						thisTitle.html(textBad);
+					}
+				},
+				error: function() {
+					$(formInit).addClass('hide-information');
+					thisTitle.html(textBad);
+				}
+			});
+			return false;
+		},
+	});
 }

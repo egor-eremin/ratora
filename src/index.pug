@@ -137,7 +137,7 @@ block content
 				.services-tabs
 					.services-tabs__list-block
 						ul.services-tabs__list
-							li.services-tabs__list-item
+							li(data-section="services-section1").services-tabs__list-item.active
 								.services-tabs__icon
 									| <svg width="100" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									|      viewBox="0 0 283.5 283.5" style="enable-background:new 0 0 283.5 283.5;" xml:space="preserve">
@@ -162,7 +162,7 @@ block content
 									| </svg>
 								.services-tabs__item-title
 									| Проектирование обьектов
-							li.services-tabs__list-item
+							li(data-section="services-section2").services-tabs__list-item
 								.services-tabs__icon
 									| <svg width="100" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									|      viewBox="0 0 283.5 283.5" style="enable-background:new 0 0 283.5 283.5;" xml:space="preserve">
@@ -177,7 +177,7 @@ block content
 									| </svg>
 								.services-tabs__item-title
 									| Продажа оборудования
-							li.services-tabs__list-item
+							li(data-section="services-section3").services-tabs__list-item
 								.services-tabs__icon
 									| <svg version="1.1" width="100" height="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									|      viewBox="0 0 283.5 283.5" style="enable-background:new 0 0 283.5 283.5;" xml:space="preserve">
@@ -213,7 +213,7 @@ block content
 								.services-tabs__item-title
 									| Монтаж оборудования
 									| и сервисное обслуживание
-							li.services-tabs__list-item
+							li(data-section="services-section4").services-tabs__list-item
 								.services-tabs__icon
 									| <svg version="1.1" width="100" height="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									|      viewBox="0 0 283.5 283.5" style="enable-background:new 0 0 283.5 283.5;" xml:space="preserve">
@@ -242,51 +242,111 @@ block content
 								.services-tabs__item-title
 									| Доставка оборудования
 					.services-tabs__section-list
-						.services-tabs__section-item
+						.services-tabs__section-item.active#services-section1
 							.services-tabs__section-title
 								| Проектирование объектов
-							ul.services-tabs__section-list
-								li.services-tabs__section-list-item
+							ul.services-tabs__content-list
+								li.services-tabs__content-list-item
 									| разработка технологического проекта
 									span
 										| подбор необходимого оборудования
-								li.services-tabs__section-list-item
+								li.services-tabs__content-list-item
 									| подбор необходимого оборудования
-								li.services-tabs__section-list-item
+								li.services-tabs__content-list-item
 									| разработка оптимальной схемы расстановки
 									span
 										| с привязкой ко всем сетям и коммуникациям
-						.services-tabs__section-item
+						.services-tabs__section-item#services-section2
 							.services-tabs__section-title
 								| Продажа оборудования
-							ul.services-tabs__section-list
-								li.services-tabs__section-list-item
+							ul.services-tabs__content-list
+								li.services-tabs__content-list-item
 									| многолетний опыт работы в области продаж
 									span
 										| оборудования, посуды , расходных  материалов для предприятий общественного питания, пекарен, кондитерских, прачечных и магазинов
-								li.services-tabs__section-list-item
+								li.services-tabs__content-list-item
 									| в партнерстве с ведущими производителями
 									| со склада и на заказ
-						.services-tabs__section-item
+						.services-tabs__section-item#services-section3
 							.services-tabs__section-title
-								| Монтаж оборудования
+								| Монтаж оборудования <br>
 								| и сервисное обслуживание
-							ul.services-tabs__section-list
-								li.services-tabs__section-list-item
+							ul.services-tabs__content-list
+								li.services-tabs__content-list-item
 									| монтаж и ввод в эксплуатацию
 									span
 										| оборудования на объекте заказчика
-								li.services-tabs__section-list-item
+								li.services-tabs__content-list-item
 									| гарантийный ремонт и обслуживание
 									span
 										| как на территории заказчика, так и на базе
 										| сервисного центра компании
-						.services-tabs__section-item
+						.services-tabs__section-item#services-section4
 							.services-tabs__section-title
 								| Доставкаоборудования
-							ul.services-tabs__section-list
-								li.services-tabs__section-list-item
+							ul.services-tabs__content-list
+								li.services-tabs__content-list-item
 									| оперативная доставка и отгрузка оборудования
 									span
 										| железнодорожным и автотранспортом
 										| в адрес заказчика
+		section.consultation
+			.template-wrapper.consultation-wrapper
+				h2.main-title.main-title_white
+					| Бесплатная консультация
+				form(method="post" action="#").consultation-form
+					.consultation-form__column
+						.consultation-prev-text
+							| Выберите направление деятельности<br> и заполните форму
+						.checkbox-wrapper
+							.checkbox-item
+								label.checkbox-label
+									input.custom-checkbox(type="checkbox" name="activity_direction" value="HoReCa")
+									| HoReCa
+							.checkbox-item
+								label.checkbox-label
+									input.custom-checkbox(type="checkbox" name="activity_direction" value="Retail")
+									| Retail
+							.checkbox-item
+								label.checkbox-label
+									input.custom-checkbox(type="checkbox" name="activity_direction" value="Bacery")
+									| Bacery
+							.checkbox-item
+								label.checkbox-label
+									input.custom-checkbox(type="checkbox" name="activity_direction" value="Мясопереработка")
+									| Мясопереработка
+							.checkbox-item
+								label.checkbox-label
+									input.custom-checkbox(type="checkbox" name="activity_direction" value="Laundry")
+									| Laundry
+							.checkbox-item
+								label.checkbox-label
+									input.custom-checkbox(type="checkbox" name="activity_direction" value="Запчасти (ЗИП)")
+									| Запчасти (ЗИП)
+							.checkbox-item
+								label.checkbox-label
+									input.custom-checkbox(type="checkbox" name="activity_direction" value="Проект оснащения предприятия")
+									| Проект оснащения предприятия
+						.form-item
+							label.checkbox-label.checkbox-label_personal-data
+								input.custom-checkbox(type="checkbox" checked name="Personal_Data_Processing_Policy")
+								| Согласен с <a href="#" target="_blank" class="personal-data-link">политикой обработки персональных данных</a>
+					.consultation-form__column
+						.form-wrapper
+							.form-item
+								label(for="user-phone").form-label введите номер телефона
+								input.form-input.input-phone(type="text" name="user_phone" minlength="18" required maxlength="18")#user-phone
+							.form-item
+								label(for="user-mail").form-label или e-mail
+								input.form-input(type="text" name="user_mail")#user-mail
+							.form-item.form-item_submit
+								button.btn.btn_form-submit(type="submit")
+									span
+										| Отправить
+				.succes-block.succes-block_error
+					.succes-block__title заявка не отправлена ...
+					a.resend(href="#") Отправить ещё раз
+				.succes-block.succes-block_good
+					.succes-block__title Заявка  на бесплатную  консультацию отправлена
+					.succes-block__text В ближайшее время наш специалист<br> свяжется с Вами
+					a.resend(href="#") Заполнить повторно

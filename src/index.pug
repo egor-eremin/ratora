@@ -294,7 +294,7 @@ block content
 			.template-wrapper.consultation-wrapper
 				h2.main-title.main-title_white
 					| Бесплатная консультация
-				form(method="post" action="#").consultation-form
+				form(method="post" action="#").consultation-form.js-consultation-form
 					.consultation-form__column
 						.consultation-prev-text
 							| Выберите направление деятельности<br> и заполните форму
@@ -329,7 +329,7 @@ block content
 									| Проект оснащения предприятия
 						.form-item
 							label.checkbox-label.checkbox-label_personal-data
-								input.custom-checkbox(type="checkbox" checked name="Personal_Data_Processing_Policy")
+								input.custom-checkbox(type="checkbox" required checked name="Personal_Data_Processing_Policy")
 								| Согласен с <a href="#" target="_blank" class="personal-data-link">политикой обработки персональных данных</a>
 					.consultation-form__column
 						.form-wrapper
@@ -338,15 +338,166 @@ block content
 								input.form-input.input-phone(type="text" name="user_phone" minlength="18" required maxlength="18")#user-phone
 							.form-item
 								label(for="user-mail").form-label или e-mail
-								input.form-input(type="text" name="user_mail")#user-mail
+								input.form-input(type="email" name="user_mail")#user-mail
 							.form-item.form-item_submit
 								button.btn.btn_form-submit(type="submit")
 									span
 										| Отправить
 				.succes-block.succes-block_error
 					.succes-block__title заявка не отправлена ...
-					a.resend(href="#") Отправить ещё раз
+					a.resend.js-send(href="#") Отправить ещё раз
 				.succes-block.succes-block_good
 					.succes-block__title Заявка  на бесплатную  консультацию отправлена
 					.succes-block__text В ближайшее время наш специалист<br> свяжется с Вами
-					a.resend(href="#") Заполнить повторно
+					a.resend.js-fill(href="#") Заполнить повторно
+		section.range
+			.template-wrapper.range-wrapper
+				h2.main-title Ассортимент товаров
+				.range__list
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/heating-equipment/").range__item-link
+							.range__icon
+								+svg_import("equip-heat")
+							.range__text
+								| Тепловое<br> оборудование
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/bakery-equipment/").range__item-link
+							.range__icon
+								+svg_import("equip-bakery")
+							.range__text
+								| Хлебопекарное<br> оборудование
+					.range__list-item
+						a(href="https://ratorarestaurantequipment.ru/catalogue/pizza-equipment/").range__item-link
+							.range__icon
+								+svg_import("equip-pizza")
+							.range__text
+								| Оборудование<br> для пицерий
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/electromechanical-equipment/").range__item-link
+							.range__icon
+								+svg_import("equip-emechanical")
+							.range__text
+								| Электромеханическое<br> оборудование
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/dishwashing-equipment/").range__item-link
+							.range__icon
+								+svg_import("equip-dishes")
+							.range__text
+								| Посудомоечное<br> оборудование
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/professional-refrigeration-equipment/").range__item-link
+							.range__icon
+								+svg_import("equip-cold")
+							.range__text
+								| Холодильное<br> оборудование
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/retail-equipment/").range__item-link
+							.range__icon
+								+svg_import("equip-retail")
+							.range__text
+								| Торговое<br> оборудование
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/neutral-equipment/").range__item-link
+							.range__icon
+								+svg_import("equip-neutral")
+							.range__text
+								| Нейтральное<br> оборудование
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/kitchen-utensils-and-inventory/").range__item-link
+							.range__icon
+								+svg_import("equip-cookware")
+							.range__text
+								| Посуда, аксессуары,<br> инвентарь
+					.range__list-item
+						a(href="https://ratorarestaurantequipment.ru/catalogue/fast-food-equipment/").range__item-link
+							.range__icon
+								+svg_import("equip-catering")
+							.range__text
+								| Оборудование<br> для фастфуда
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/equipment-for-bar/kofemashiny/").range__item-link
+							.range__icon
+								+svg_import("equip-coffee")
+							.range__text
+								| Кофейное<br> оборудование
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/equipment-for-bar/").range__item-link
+							.range__icon
+								+svg_import("equip-bar")
+							.range__text
+								| Барное<br> оборудование
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/laundry-equipment/").range__item-link
+							.range__icon
+								+svg_import("equip-laundary")
+							.range__text
+								| Прачечное<br> оборудование
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/sanitary-and-hygienic-equipment/").range__item-link
+							.range__icon
+								+svg_import("equip-wc")
+							.range__text
+								| Оборудование<br> для уборки и WC
+					.range__list-item
+						a(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue/weighing-and-packaging-equipment/").range__item-link
+							.range__icon
+								+svg_import("equip-pack")
+							.range__text
+								| Упаковочное<br> оборудование
+				.show-all-wrapper
+					a.show-all(target="_blank" href="https://ratorarestaurantequipment.ru/catalogue") Посмотреть в магазине
+		section.producer
+			.template-wrapper.producer-wrapper
+				h2.main-title Производители, с которыми работаем
+				.producer-list.js-producer-slider
+					.producer-list__item
+						img(src="images/producer_1.png" alt="CAS")
+					.producer-list__item
+						img(src="images/producer_2.png" alt="CRYSPI")
+					.producer-list__item
+						img(src="images/producer_3.png" alt="Fimar")
+					.producer-list__item
+						img(src="images/producer_4.png" alt="Frostor Group")
+					.producer-list__item
+						img(src="images/producer_5.png" alt="Hamilton Beach")
+					.producer-list__item
+						img(src="images/producer_6.png" alt="Hi Cold")
+					.producer-list__item
+						img(src="images/producer_7.png" alt="Imesa")
+					.producer-list__item
+						img(src="images/producer_8.png" alt="ItalFrost")
+					.producer-list__item
+						img(src="images/producer_9.png" alt="Rational")
+					.producer-list__item
+						img(src="images/producer_10.png" alt="Robot Coupe")
+					.producer-list__item
+						img(src="images/producer_11.png" alt="UNOX")
+					.producer-list__item
+						img(src="images/producer_12.png" alt="АТЕСИ")
+					.producer-list__item
+						img(src="images/producer_13.png" alt="Восход")
+					.producer-list__item
+						img(src="images/producer_14.png" alt="Balley")
+					.producer-list__item
+						img(src="images/producer_15.png" alt="MXM")
+					.producer-list__item
+						img(src="images/producer_16.png" alt="Premier")
+					.producer-list__item
+						img(src="images/producer_17.png" alt="POLUS")
+					.producer-list__item
+						img(src="images/producer_18.png" alt="Пензмаш")
+					.producer-list__item
+						img(src="images/producer_19.png" alt="POLAIR")
+					.producer-list__item
+						img(src="images/producer_20.png" alt="RADA")
+					.producer-list__item
+						img(src="images/producer_21.png" alt="Снеж Bonvini")
+					.producer-list__item
+						img(src="images/producer_22.png" alt="Торгеомаш")
+					.producer-list__item
+						img(src="images/producer_23.png" alt="Finist")
+					.producer-list__item
+						img(src="images/producer_24.png" alt="Abat")
+		section.works
+			.template-wrapper.works-wrapper
+				h2.main-title.main-title_white Наши работы

@@ -226,12 +226,15 @@
 	&::before {
 		content: none;
 	}
-	&:hover {
+	&:hover, &:focus {
 		border-color: $color-MintGreen;
 		background: $color-MediumAquamarine;
 		.slider-arrow-path {
 			fill: #ffffff;
 		}
+	}
+	&:focus {
+		outline: none !important;
 	}
 }
 .slider-arrow-wrapper {
@@ -606,4 +609,105 @@
 	text-align: center;
 	margin-bottom: 60px;
 }
+.form-input + .error {
+	display: none !important;
+}
+.checkbox-label label.error {
+	position: absolute;
+	width: 26px;
+	height: 26px;
+	border: 2px solid #ff252d;
+	display: block;
+	left: 0;
+	top: -3px;
+	border-radius: 3px;
+	font-size: 0;
+}
+.form-input.error {
+	border-color: #ff252d;
+	background: #ffeced;
+	-webkit-box-shadow: inset 0 0 0 50px #ffeced !important;
+}
+.range__list {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 72px;
+}
+.range__list-item {
+	width: 20%;
+	display: flex;flex-direction: column;
+	align-items: center;
+	margin-bottom: 101px;
+}
+.range__icon {
+	margin-bottom: 15px;
+	svg {
+		height: 76px;
+		fill: $color-MediumAquamarine;
+	}
+}
 
+.range__text {
+	font-weight: 600;
+	font-size: 13px;
+	line-height: 21px;
+	color: $color-lightGrey;
+	text-align: center;
+	transition: .3s ease;
+}
+.range {
+	padding-top: 70px;
+	padding-bottom: 117px;
+}
+.range__item-link {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	&:hover .range__text, &:focus {
+		color: $color-MediumAquamarine;
+		text-decoration: underline;
+	}
+}
+.range__item-link:focus {
+	outline: none !important;
+}
+.show-all {
+	color: $color-MediumAquamarine;
+	font-size: 16px;
+	line-height: 17px;
+	font-weight: 600;
+	border-bottom: 1px solid rgba(41, 189, 170, .3);
+	transition: .3s ease;
+	margin-right: 51px;
+}
+.show-all:hover {
+	border-color: rgba(41,189,170,.6);
+}
+.show-all-wrapper {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: -29px;
+}
+.producer-list__item {
+	padding-right: 20px;
+	padding-left: 20px;
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
+}
+.producer-list {
+	.slick-track {
+		display: flex;
+		align-items: center;
+	}
+}
+.producer {
+	padding-top: 70px;
+	padding-bottom: 117px;
+}
+.producer-list {
+	margin-top: 67px;
+	& .slider-arrow-wrapper {
+		bottom: -42px;
+	}
+}

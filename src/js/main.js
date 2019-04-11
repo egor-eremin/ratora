@@ -152,6 +152,22 @@ $(document).ready(function () {
 			myMap.geoObjects.add(myPlacemark);
 		}
 	})();
+
+	(function upToTopBottom() {
+		$('.arrow-top-button').on('click', function () {
+			animatedScrollToPosition($('body, html'), 0, 300);
+		});
+	})();
+
+	(function initBottomUp() {
+		$(window).on('scroll', function () {
+			if($(this).scrollTop() > 500) {
+				$('.arrow-top').addClass('active');
+			} else {
+				$('.arrow-top').removeClass('active');
+			}
+		});
+	})();
 });
 
 function initSlider(initSelector) {
@@ -230,4 +246,10 @@ function validationForm(formInit, sectionGood, sectionBad) {
 			return false;
 		},
 	});
+}
+function animatedScrollToPosition($selector, position, duration){
+	$($selector).animate({
+		scrollTop: position
+	}, duration);
+	return false;
 }

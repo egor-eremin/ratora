@@ -974,3 +974,42 @@
 		border-color: rgba(102,102,102,.6);
 	}
 }
+.arrow-top {
+	position: fixed;
+	bottom: 20px;
+	left: 0;
+	z-index: 100;
+	opacity: 0;
+	visibility: hidden;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	&.active {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+.arrow-top-button {
+	width: 56px;
+	height: 56px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $color-MediumAquamarine;
+	opacity: .7;
+	transform: rotate(-90deg);
+	transition: .3s ease;
+	&:hover {
+		opacity: 1;
+	}
+}
+.arrow-top__wrapper {
+	display: flex;
+	justify-content: flex-end;
+}
+@media (max-width: 1170px) {
+	.header-wrapper {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}

@@ -12,15 +12,15 @@ block content
 				+svg_import("logo")
 			nav.main-nav
 				ul.main-nav__list
-					+menu-list-item('#direction', 'Направления', 'active')
+					+menu-list-item('#direction', 'Направления')
 					+menu-list-item('#service', 'Услуги')
 					+menu-list-item('#goods', 'Товары')
 					+menu-list-item('#objects', 'Объекты')
 					+menu-list-item('#about', 'О компании')
-					+menu-list-item('#contacts', 'Контакты')
+					+menu-list-item('#contacts-section', 'Контакты')
 			.main-phone
 				a.header-phone(href='tel:89089999900') +7 (908) 999-99-00
-				a.callback(href='#callback-popup') Заказать звонок
+				a.callback-button(href='#callback-popup') Заказать звонок
 		.template-wrapper.header-information
 			.header-information__title
 				| Комплексное оснащение
@@ -51,7 +51,7 @@ block content
 						img.stock-slider__img(src="images/stock.jpg" alt="Акция 3")
 						a.btn.btn-more(href="#")
 							span Подробнее
-		section.activities
+		section.menu-section.activities#direction
 			.template-wrapper.activities-wrapper
 				h2.main-title Направления деятельности
 				.activities__list
@@ -131,7 +131,7 @@ block content
 							picture.activities__picture
 								source(srcset='images/activities-6.webp' type='image/webp')
 								img(src='images/activities-6.jpg' alt='ЗАПЧАСТИ (ЗИП)')
-		section.services
+		section.menu-section.services#service
 			.template-wrapper
 				h2.main-title Полный комплекс услуг
 				.services-tabs
@@ -350,7 +350,7 @@ block content
 					.succes-block__title Заявка  на бесплатную  консультацию отправлена
 					.succes-block__text В ближайшее время наш специалист<br> свяжется с Вами
 					a.resend.js-fill(href="#") Заполнить повторно
-		section.range
+		section.menu-section.range#goods
 			.template-wrapper.range-wrapper
 				h2.main-title Ассортимент товаров
 				.range__list
@@ -498,7 +498,7 @@ block content
 						img(src="images/producer_23.png" alt="Finist")
 					.producer-list__item
 						img(src="images/producer_24.png" alt="Abat")
-		section.works
+		section.works#objects
 			.template-wrapper.works-wrapper
 				h2.main-title.main-title_white Наши работы
 				.works__text
@@ -560,7 +560,7 @@ block content
 										.col-text  &#8195;—&#8195;2800 м2
 							.works-slider__img
 								img(src="images/works-slider.jpg" alt="Ratora")
-		section.about
+		section.menu-section.about#about
 			.template-wrapper.about-wrapper
 				h2.main-title «RATORA Group»  это
 				.about-text
@@ -588,7 +588,7 @@ block content
 					p
 						| Наша компания является дистрибьютером многих торговых марок , хорошо зарекомендовавших на российском рынке, что позволяет предложить нашим клиентам низкие цены и наличие большого ассортимента
 						| на складе в Иркутске.
-		section.contacts
+		section.menu-section.contacts#contacts-section
 			.map-container#map
 			.template-wrapper.contacts-wrapper
 				.contacts-wrapper__col
@@ -713,3 +713,23 @@ block content
 				|   </defs>
 				|   <path id="right" class="arrow-up-svg" d="M1479.89,1156l13.75,13.02-13.75,13.03-3.21-3.04,10.55-9.99-4.56-4.32-5.99-5.66Z" transform="translate(-1476.69 -1156)"></path>
 				| </svg>
+	#callback-popup.callback.mfp-hide
+		.callback__title.callback__title-success.callback__title-error Что-то пошло не так...<br>Мы обязательно это исправим
+		.callback__title.callback__title-success.callback__title-good Спасибо за заявку!<br>Наши менеджеры свяжутся с Вами в ближайшее время.
+		form(method="post" action="#").callback__form.js-callback-form
+			.callback__title Обратный звонок
+			.form-item
+				label(for="callback-user").form-label Введите ваше имя
+				input.form-input(type="text" required name="user_mail")#callback-user
+			.form-item
+				label(for="callback-phone").form-label Введите номер телефона
+				input.form-input.input-phone(type="text" name="user_phone" minlength="18" required maxlength="18")#callback-phone
+			.form-item
+				label.checkbox-label.checkbox-label_personal-data
+					input.custom-checkbox(type="checkbox" required checked name="Personal_Data")
+					| Согласен с <a href="#" target="_blank" class="personal-data-link">политикой обработки персональных данных</a>
+			.form-item.form-item_submit
+				button.btn.btn_form-submit(type="submit")
+					span
+						| Отправить
+

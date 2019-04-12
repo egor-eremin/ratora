@@ -210,7 +210,7 @@ $(document).ready(function () {
   })();
 
   (function addValidation() {
-    validationForm('.js-consultation-form', '.succes-block_error', '.succes-block_good');
+    validationForm('.js-consultation-form', '.succes-block_good', '.succes-block_error');
   })();
 
   (function closesMessage() {
@@ -287,6 +287,98 @@ $(document).ready(function () {
       } else {
         $('.arrow-top').removeClass('active');
       }
+    });
+  })();
+
+  (function initMenu() {
+    $(window).on('scroll', function () {
+      if ($(this).scrollTop() > 112) {
+        $('.header-wrapper').addClass('fixed');
+      } else {
+        $('.header-wrapper').removeClass('fixed');
+      }
+    });
+  })();
+
+  (function openCallbackPopup() {
+    $('.callback-button').magnificPopup({
+      type: 'inline',
+      mainClass: 'callback-popup-form',
+      callbacks: {
+        beforeClose: function beforeClose() {
+          console.log('aaa');
+
+          if ($('.callback-popup-form .callback__title-error').hasClass('show')) {
+            $('.callback-popup-form .callback__title-error').removeClass('show');
+            $('.callback__form').removeClass('hide-information');
+          } else if ($('.callback-popup-form .callback__title-good').hasClass('show')) {
+            $('.callback-popup-form .callback__title-good').removeClass('show');
+            $('.callback__form').removeClass('hide-information');
+            $('.callback .form-input').prop('value', '');
+          }
+        }
+      }
+    });
+  })();
+
+  (function validatioCallbackForm() {
+    validationForm('.js-callback-form', '.callback__title-good', '.callback__title-error');
+  })();
+
+  (function switchingFixedMenu() {
+    var lastId,
+        topMenu = $(".header-wrapper"),
+        topMenuHeight = topMenu.outerHeight() + 15,
+        menuItems = topMenu.find(".main-nav__item a"),
+        scrollItems = menuItems.map(function () {
+      var item = $($(this).attr("href"));
+
+      if (item.length) {
+        return item;
+      }
+    }); // Bind click handler to menu items
+    // so we can get a fancy scroll animation
+
+    menuItems.click(function (e) {
+      var href = $(this).attr("href"),
+          offsetTop = href === "#" ? 0 : $(href).offset().top - topMenuHeight + 1;
+      $('html, body').stop().animate({
+        scrollTop: offsetTop
+      }, 300);
+      e.preventDefault();
+    }); // Bind to scroll
+
+    $(window).scroll(function () {
+      // Get container scroll position
+      var fromTop = $(this).scrollTop() + topMenuHeight; // Get id of current scroll item
+
+      var cur = scrollItems.map(function () {
+        if ($(this).offset().top < fromTop) return this;
+      }); // Get the id of the current element
+
+      cur = cur[cur.length - 1];
+      var id = cur && cur.length ? cur[0].id : "";
+
+      if (lastId !== id) {
+        lastId = id; // Set/remove active class
+
+        menuItems.parent().removeClass("active").end().filter("[href='#" + id + "']").parent().addClass("active");
+      }
+    }); // $(window).scroll(function () {
+    // 	$('.menu-section').each(function () {
+    // 		if () {
+    //
+    // 		}
+    // 	});
+    // });
+  })();
+
+  (function upToSection() {
+    $('.footer-menu__item a').on('click', function (e) {
+      e.preventDefault();
+      var thisSection = $(this).attr('href');
+      var destination = $('' + thisSection + '').offset().top;
+      animatedScrollToPosition($('body, html'), destination - 150, 300);
     });
   })();
 });
@@ -381,10 +473,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(slick_carousel__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var jquery_validation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery-validation */ "./node_modules/jquery-validation/dist/jquery.validate.js");
 /* harmony import */ var jquery_validation__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery_validation__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jquery-mask-plugin */ "./node_modules/jquery-mask-plugin/dist/jquery.mask.js");
-/* harmony import */ var jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var object_fit_images__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! object-fit-images */ "./node_modules/object-fit-images/dist/ofi.common-js.js");
-/* harmony import */ var object_fit_images__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(object_fit_images__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var magnific_popup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! magnific-popup */ "./node_modules/magnific-popup/dist/jquery.magnific-popup.js");
+/* harmony import */ var magnific_popup__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(magnific_popup__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jquery-mask-plugin */ "./node_modules/jquery-mask-plugin/dist/jquery.mask.js");
+/* harmony import */ var jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var object_fit_images__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! object-fit-images */ "./node_modules/object-fit-images/dist/ofi.common-js.js");
+/* harmony import */ var object_fit_images__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(object_fit_images__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -392,7 +486,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-object_fit_images__WEBPACK_IMPORTED_MODULE_6___default()();
+
+object_fit_images__WEBPACK_IMPORTED_MODULE_7___default()();
 svg4everybody__WEBPACK_IMPORTED_MODULE_1___default()();
 window.$ = jquery__WEBPACK_IMPORTED_MODULE_2___default.a;
 window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_2___default.a;

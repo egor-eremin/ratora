@@ -53,10 +53,10 @@ label {
 *:focus {
 	outline: 1px solid rgba(41,189,170,.4) !important;
 }
-input::-webkit-input-placeholder       {color: #020202; font-weight: 500; opacity: 1; transition: opacity 0.3s ease;}
-input::-moz-placeholder                {color: #020202; font-weight: 500; opacity: 1; transition: opacity 0.3s ease;}
-input:-moz-placeholder                 {color: #020202; font-weight: 500; opacity: 1; transition: opacity 0.3s ease;}
-input:-ms-input-placeholder            {color: #020202; font-weight: 500; opacity: 1; transition: opacity 0.3s ease;}
+input::-webkit-input-placeholder       {color: #989898; font-weight: 500; opacity: 1; transition: opacity 0.3s ease;}
+input::-moz-placeholder                {color: #989898; font-weight: 500; opacity: 1; transition: opacity 0.3s ease;}
+input:-moz-placeholder                 {color: #989898; font-weight: 500; opacity: 1; transition: opacity 0.3s ease;}
+input:-ms-input-placeholder            {color: #989898; font-weight: 500; opacity: 1; transition: opacity 0.3s ease;}
 input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
 input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
 input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}

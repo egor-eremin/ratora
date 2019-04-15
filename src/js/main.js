@@ -259,15 +259,7 @@ $(document).ready(function () {
 
 		});
 	})();
-	(function animateFirstScreen() {
-		var controller = new ScrollMagic.Controller();
-		var scene = new ScrollMagic.Scene({
-			triggerElement: ".stock-slider",
-			duration: 200
-		})
-			.setTween(new TweenMax.to('.main-header', .5, {css: {opacity: '0'}}))
-			.addTo(controller);
-	})();
+
 
 	media ('all and (min-width: 1169px)', function () {
 		(function initMenu() {
@@ -279,6 +271,17 @@ $(document).ready(function () {
 				}
 			});
 		})();
+
+		(function animateFirstScreen() {
+			var controller = new ScrollMagic.Controller();
+			var scene = new ScrollMagic.Scene({
+				triggerElement: ".stock-slider",
+				duration: 200
+			})
+				.setTween(new TweenMax.to('.main-header', .5, {css: {opacity: '0'}}))
+				.addTo(controller);
+		})();
+
 	});
 	media ('all and (max-width: 1170px)', function () {
 		$('.fixed-menu').removeClass('show');

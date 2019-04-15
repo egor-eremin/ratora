@@ -1,4 +1,8 @@
 import './vendor';
+import ScrollMagic from 'scrollmagic/scrollmagic/uncompressed/ScrollMagic';
+import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
+import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
+import TweenMax from 'gsap/src/uncompressed/TweenMax';
 $(document).ready(function () {
 
 	(function initStockSlider() {
@@ -255,23 +259,29 @@ $(document).ready(function () {
 
 		});
 	})();
+	(function animateFirstScreen() {
+		var controller = new ScrollMagic.Controller();
+		var scene = new ScrollMagic.Scene({
+			triggerElement: ".stock-slider",
+			duration: 200
+		})
+			.setTween(new TweenMax.to('.main-header', .5, {css: {opacity: '0'}}))
+			.addTo(controller);
+	})();
 
 	media ('all and (min-width: 1169px)', function () {
 		(function initMenu() {
 			$(window).on('scroll', function () {
 				if($(this).scrollTop() > 112) {
-					$('.header-wrapper').addClass('fixed');
-					$('.main-header').addClass('fake-menu');
+					$('.fixed-menu').addClass('show');
 				} else {
-					$('.header-wrapper').removeClass('fixed');
-					$('.main-header').removeClass('fake-menu');
+					$('.fixed-menu').removeClass('show');
 				}
 			});
 		})();
 	});
 	media ('all and (max-width: 1170px)', function () {
-		$('.header-wrapper').removeClass('fixed');
-		$('.main-header').removeClass('fake-menu');
+		$('.fixed-menu').removeClass('show');
 	});
 });
 

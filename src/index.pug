@@ -730,4 +730,18 @@ block content
 				button.btn.btn_form-submit(type="submit")
 					span
 						| Отправить
+	.template-wrapper.header-wrapper.fixed-menu
+		a#header.main-logo
+			+svg_import("logo")
+		nav.main-nav
+			ul.main-nav__list
+				+menu-list-item('#direction', 'Направления')
+				+menu-list-item('#service', 'Услуги')
+				+menu-list-item('#goods', 'Товары')
+				+menu-list-item('#objects', 'Объекты')
+				+menu-list-item('#about', 'О компании')
+				+menu-list-item('#contacts-section', 'Контакты')
+		.main-phone
+			a.header-phone(href='tel:89089999900') +7 (908) 999-99-00
+			a.callback-button(href='#callback-popup') Заказать звонок
 

@@ -25,6 +25,7 @@
 	height: 784px;
 	background: url("../images/background-header.jpg") no-repeat center center;
 	background-size: cover;
+	opacity: 1;
 }
 .main-logo {
 	cursor: pointer;
@@ -702,6 +703,7 @@
 	display: flex !important;
 	justify-content: center;
 	align-items: center;
+	opacity: .5;
 }
 .producer-list {
 	.slick-track {
@@ -731,7 +733,7 @@
 	font-size: 13px;
 	line-height: 23px;
 	color: $color-white;
-	margin-bottom: 87px;
+	margin-bottom: 55px;
 	max-width: 840px;
 }
 .works-slider__item {
@@ -1127,7 +1129,7 @@
 	line-height: 36px;
 	font-size: 19px;
 }
-.header-wrapper.fixed {
+.fixed-menu {
 	position: fixed;
 	top: 0;
 	left: 50%;
@@ -1135,6 +1137,8 @@
 	z-index: 100;
 	background: $color-DimGrey;
 	animation: animationFixedMenu .3s ease both;
+	visibility: hidden;
+	opacity: 0;
 	&::before, &::after {
 		content: '';
 		position: absolute;
@@ -1149,6 +1153,10 @@
 		transform: translateX(100%);
 		left: auto;
 		right: 0;
+	}
+	&.show {
+		visibility: visible;
+		opacity: 1;
 	}
 }
 .fake-menu {

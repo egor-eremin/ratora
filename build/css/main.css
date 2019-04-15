@@ -1933,7 +1933,8 @@ body {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  padding-top: 72px; }
+  padding-top: 72px;
+  overflow: hidden; }
 
 .range__list-item {
   width: 20%;
@@ -2703,6 +2704,10 @@ body {
     padding-left: 30px;
     padding-right: 30px; }
   .header-wrapper.fixed {
-    display: none; } }
+    display: none; }
+  .fixed-menu {
+    display: none; }
+  .main-header {
+    opacity: 1 !important; } }
 
 /*# sourceMappingURL=main.css.map */
